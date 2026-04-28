@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from "react";
-import FeedbackForm from "./components/FeedbackForm";
-import FeedbackList from "./components/FeedbackList";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [feedback, setFeedback] = useState([]);
-
-  const loadFeedback = async () => {
-    const res = await fetch("http://localhost:5000/api/feedback");
-    const data = await res.json();
-    setFeedback(data);
-  };
-
-  useEffect(() => {
-    loadFeedback();
-  }, []);
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Feedback Form</h2>
-      <FeedbackForm refreshFeedback={loadFeedback} />
-
-      <h2>Feedback List</h2>
-      <FeedbackList feedback={feedback} />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
 
 export default App;
-
